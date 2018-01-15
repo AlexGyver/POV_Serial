@@ -29,33 +29,13 @@
 
 <a id="chapter-2"></a>
 ## Схемы
-![SCHEME](https://github.com/AlexGyver/PCdisplay/blob/master/schemes%26PCBs/scheme_fritzing.png)
-![SCHEME](https://github.com/AlexGyver/PCdisplay/blob/master/schemes%26PCBs/scheme_EasyEDA.png)
+![SCHEME](https://github.com/AlexGyver/POV_Serial/blob/master/Schemes/button.png)
+![SCHEME](https://github.com/AlexGyver/POV_Serial/blob/master/Schemes/BT.png)
 
 <a id="chapter-3"></a>
 ## Материалы и компоненты
 * Arduino NANO http://ali.pub/20o35g  http://ali.pub/20o36t
-* Дисплей 2004 синий с драйвером http://ali.pub/20o3dt  http://ali.pub/20o3el
-* Дисплей 1602 синий с драйвером http://ali.pub/21wqmn http://ali.pub/21wqla
-* Драйвер дисплея отдельно http://ali.pub/21wqos
-* Дисплеи 1602 БЕЗ ДРАЙВЕРА (купить отдельно):
-  - Синий фон, белые буквы http://ali.pub/21wr11
-  - Зелёный фон, чёрные буквы http://ali.pub/21wqv7  
-  - Чёрный фон, рыжие буквы http://ali.pub/21wr27
-  - Чёрный фон, белые буквы http://ali.pub/21wr3y
-  - Серый фон, чёрные буквы http://ali.pub/21wrhr
-* Провод http://ali.pub/20oa1k  http://ali.pub/20oa3w
-* Датчик температуры http://ali.pub/20o3fk  http://ali.pub/20o3gc
-* Лента светодиодная http://ali.pub/20o51w  http://ali.pub/20o53u
-* Макетная плата http://ali.pub/20o3nj  http://ali.pub/20o3nx
-* Клеммники винтовые http://ali.pub/20o3ty
-* 10 МОСФЕТов http://ali.pub/20o1yh
-* 100 Ом http://ali.pub/20o33b
-* 10 кОм http://ali.pub/20o334
-* Кнопки ищите на радиорынке, у китайцев можно 500 штук только купить
-* Или тут смотрите http://alexgyver.ru/electronics/
-* Или такие http://ali.pub/20o4vo
-* Корпус http://ali.pub/20ocky  http://ali.pub/20ocpm
+
 
 РАССЫПУХА В РОССИИ
 * Светодиод https://www.chipdip.ru/product/irf3205
