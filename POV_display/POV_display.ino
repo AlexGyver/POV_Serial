@@ -1,3 +1,9 @@
+/*
+   POV Serial by AlexGyver
+   https://github.com/AlexGyver/POV_Serial
+   Сообщество ВК: https://vk.com/pov_light
+*/
+
 // ------------------ НАСТРОЙКИ ------------------
 #define TRIGGER 12        // пин кнопки запуска анимации
 #define SPACE 2           // интервал между буквами

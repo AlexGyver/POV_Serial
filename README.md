@@ -34,13 +34,18 @@
 
 <a id="chapter-3"></a>
 ## Материалы и компоненты
-* Arduino NANO http://ali.pub/20o35g  http://ali.pub/20o36t
-
-
-РАССЫПУХА В РОССИИ
-* Светодиод https://www.chipdip.ru/product/irf3205
-* Резистор https://www.chipdip.ru/product/irfz24n
-* Кнопка https://www.chipdip.ru/product0/47324
+### Ссылки оставлены на магазины, с которых я закупаюсь уже не один год
+* Arduino NANO с ногами http://ali.pub/26yo7x http://ali.pub/26yo7j
+* Arduino NANO без ног http://ali.pub/26yo93 http://ali.pub/26yoa9
+* Макетная плата http://ali.pub/26yoc0 http://ali.pub/26yocl
+* Провода для макетки http://ali.pub/26yocs http://ali.pub/26yodk
+* Светодиоды ассорти 5 мм http://ali.pub/26yogo http://ali.pub/26yoi8
+* Bluetooth модуль http://ali.pub/26yolx http://ali.pub/26yonh
+* Кнопочки http://ali.pub/26you3
+* Батарейный отсек http://ali.pub/26yp6c
+* Повышайка до 5В http://ali.pub/26yp8o
+* Резисторы http://ali.pub/26ypam
+* P.S. Кнопку, резисторы и светодиоды можно купить в любом магазине радиотоваров/радиорынке. Но взять у китайцев 100 штук обычно бывает дешевле, даже если лишние выбросить...
 
 ## Вам скорее всего пригодится
 * [Всё для пайки (паяльники и примочки)](http://alexgyver.ru/all-for-soldering/)
