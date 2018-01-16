@@ -1,4 +1,4 @@
-[![AlexGyver YouTube](http://alexgyver.ru/git_banner.jpg)](https://www.youtube.com/channel/UCgtAOyEQdAyjvm9ATCi_Aig?sub_confirmation=1)
+![PROJECT_PHOTO](https://github.com/AlexGyver/POV_Serial/blob/master/proj_img.jpg)
 # POV писалка - рисовалка с настройкой по UART
 * [Описание проекта](#chapter-0)
 * [Папки проекта](#chapter-1)
@@ -7,8 +7,7 @@
 * [Как скачать и прошить](#chapter-4)
 * [FAQ](#chapter-5)
 * [Полезная информация](#chapter-6)
-
-![PROJECT_PHOTO](https://github.com/AlexGyver/POV_Serial/blob/master/proj_img.jpg)
+[![AlexGyver YouTube](http://alexgyver.ru/git_banner.jpg)](https://www.youtube.com/channel/UCgtAOyEQdAyjvm9ATCi_Aig?sub_confirmation=1)
 
 <a id="chapter-0"></a>
 ## Описание проекта
@@ -20,7 +19,7 @@
 - Включение-выключение зацикленности анимации
 - Сохранение настроек в EEPROM
 - Отрисовка графики 8 пикселей в высоту и неограниченно в длину
-- Подробности в видео: https://youtu.be/hCPOQI-eFYs
+- Подробности в видео: https://youtu.be/xMdRmrXdSxU
 
 <a id="chapter-1"></a>
 ## Папки
