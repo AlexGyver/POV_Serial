@@ -1,0 +1,29 @@
+LIZENZVERTRAG
+
+Die Benutzung der Software durch Sie, den Anwender, erfolgt ausschließlich zu den nachfolgenden Bedingungen. 
+Wenn Sie die Software installieren oder nutzen, stimmen Sie dadurch diesem Vertrag zu.
+
+1. NUTZUNGSBEDINGUNGEN
+
+1.1 FREEWARE-VERSION
+
+Privatpersonen, gemeinnützige Einrichtungen und Bildungsinstitute haben das Recht, die Freeware-Version der vorliegenden Software kostenlos auf beliebig vielen PCs beliebig lang einzusetzen. 
+Die Freeware-Version darf beliebig kopiert und weitergegeben werden, jedoch nur vollständig und unentgeltlich. 
+Eine Veröffentlichung auf CD-ROMs oder anderen Datenträgern ist ohne die Zustimmung des Rechteinhabers nicht gestattet. 
+Es ist nicht gestattet, die Software in ihrer Funktion oder ihrem Erscheinungsbild zu verändern oder zu übersetzen, 
+zurückzuentwickeln, zu entkompilieren oder zu deassemblieren.
+Der Autor/Hersteller behält sich das Recht vor, die Software nach eigenem Ermessen zu aktualisieren und neue oder korrigierte Versionen herzustellen. 
+
+2. GARANTIE- UND HAFTUNGSAUSSCHLUSS
+
+Die Software wurde vom Autor/Hersteller sorgfältig erstellt und getestet sowie vor der Veröffentlichung auf Viren geprüft und wird Ihnen im reinen Ist-Zustand zur Verfügung gestellt. 
+Es wird darauf hingewiesen, dass es nicht möglich ist, Software-Programme so zu entwickeln, dass sie für alle Anwendungsbedingungen fehlerfrei einsetzbar sind. Der Autor/Hersteller garantiert nicht die Eignung der Software für einen bestimmten Anwendungsfall oder eine bestimmte Konfiguration.
+Der Autor/Hersteller übernimmt keinerlei Haftung oder Gewährleistung für Fehler in der Software und Fehler und Schäden, die sich aus der Nutzung oder Unfähigkeit zur Nutzung der Software ergeben. 
+Dies schließt den Verlust von Geschäftsgewinnen, die Unterbrechung der geschäftlichen Abläufe, den Verlust von Daten sowie alle übrigen materiellen und ideellen Verluste und deren Folgeschäden ein und gilt selbst dann, wenn der Autor/Hersteller zuvor ausdrücklich auf die Möglichkeit derartiger Schäden hingewiesen worden ist. 
+Sie erklären mit der Nutzung der Software Ihr Einverständnis mit den o.g. Nutzungsbedingungen sowie dem Garantie- und Haftungsausschluss. Sollten einzelne Bestimmungen in diesen Bedingungen nichtig, unwirksam oder anfechtbar sein oder werden, so wird hiervon die Wirksamkeit aller sonstigen Bestimmungen oder Vereinbarungen nicht berührt. Die gesamte maximale Haftung ist auf die Registriergebühr beschränkt, sofern Sie eine solche für die Software bezahlt haben.
+
+3. COPYRIGHT
+
+Die vorliegende Software wurde von Ulrich Schmerold entwickelt. Die Software und die Dokumentation sind 
+urheberrechtlich geschützt. 
+Das Copyright © 2016 liegt bei Ulrich Schmerold, Bahnhofstr. 6, 86836 Graben
