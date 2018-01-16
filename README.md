@@ -8,6 +8,8 @@
 * [FAQ](#chapter-5)
 * [Полезная информация](#chapter-6)
 
+![PROJECT_PHOTO](https://github.com/AlexGyver/POV_Serial/blob/master/proj_img.jpg)
+
 <a id="chapter-0"></a>
 ## Описание проекта
 Простейшая POV рисовалка на 8 светодиодах
