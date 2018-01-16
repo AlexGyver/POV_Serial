@@ -9,7 +9,7 @@
 ![](https://github.com/AlexGyver/POV_Serial/blob/master/Bitmap%20converters/LCDAssistant/LCDAssistant.png)
 
 ## POV Globe Calculator2
-Програмка, задуманная для рисования битмапов на фоне загруженной картинки. Генерируемый код оптимизирован схемы со сдвиговыми регистрами.
+Програмка, задуманная для рисования битмапов на фоне загруженной картинки. Генерируемый код оптимизирован для схемы со сдвиговыми регистрами.
 ![](https://github.com/AlexGyver/POV_Serial/blob/master/Bitmap%20converters/POV_Globe_Calculator2/POV_Globe_Calculator2.png)
 
 ## The Dot Factory
