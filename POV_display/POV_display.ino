@@ -5,7 +5,7 @@
 */
 
 // ------------------ НАСТРОЙКИ ------------------
-#define TRIGGER 10          // пин кнопки запуска анимации
+#define TRIGGER 12          // пин кнопки запуска анимации
 #define SPACE 2             // интервал между буквами
 #define BLUETOOTH_MODE 0    // если схема с bluetooth модулем
 // ------------------ НАСТРОЙКИ ------------------
@@ -16,7 +16,7 @@
 
 #if (BLUETOOTH_MODE == 1)    // если режим блютуса
 #include <SoftwareSerial.h>
-SoftwareSerial btSerial(11, 12); // RX, TX
+SoftwareSerial btSerial(10, 11); // RX, TX
 #define Serial btSerial      // заменить Serial на btSerial во всём коде ниже
 #endif
 
@@ -61,8 +61,6 @@ void setup() {
     DDRD = B11111111;                        // пины 0-7 как выходы
     PORTD = 0x00;
   }
-  //if (!(digitalRead(0) && offlineMode))      // если не вышли в оффлайн, но к компу не подключены
-  //offlineMode = true;
   /*
      EEPROM MAP
      0-64 - буфер
@@ -122,7 +120,7 @@ void loop() {
   for (;;) {         // главный подцикл, ожидает данные в Serial и отрабатывает кнопку
     triggerTick();
     availableBytes = Serial.available();           // считаем, сколько байт в буфере
-    if (availableBytes > 0 && !anim_flag) {        // если есть что то на вход (и первый байт не 0x00) и НЕ показывается анимация
+    if (availableBytes > 0 && !anim_flag) {        // если есть что то на вход и НЕ показывается анимация
       delay(200);                                  // ждём, пока придут остальные символы
       while (Serial.peek() == 0)                   // выкидываем байты 0х00
         Serial.read();
@@ -159,14 +157,11 @@ void loop() {
     } else if (strData.startsWith(loopSet)) {
       strData.remove(0, 5);
       byte newLoop = strData.toInt();
-      if (newLoop == 1) {
-        loopMode = true;
-        Serial.println(F("Loop mode on"));
+      if (newLoop <= 1) {
+        loopMode = newLoop == 1;
         updateEEPROM();
-      } else if (newLoop == 0) {
-        loopMode = false;
-        updateEEPROM();
-        Serial.println(F("Loop mode off"));
+        Serial.print(F("Loop mode "));
+        Serial.println(loopMode ? F("on") : F("off"));
       }
       else Serial.println(F("Wrong loop!"));
 
@@ -174,14 +169,11 @@ void loop() {
     } else if (strData.startsWith(reverseSet)) {
       strData.remove(0, 8);
       byte newReverse = strData.toInt();
-      if (newReverse == 1) {
-        reverseMode = true;
+      if (newReverse <= 1) {
+        reverseMode = newReverse == 1;
         updateEEPROM();
-        Serial.println(F("Reverse on"));
-      } else if (newReverse == 0) {
-        reverseMode = false;
-        updateEEPROM();
-        Serial.println(F("Reverse off"));
+        Serial.print(F("Reverse "));
+        Serial.println(reverseMode ? F("on") : F("off"));
       }
       else Serial.println(F("Wrong reverse!"));
 
@@ -191,7 +183,7 @@ void loop() {
       byte newCustom = strData.toInt();
       if (newCustom < sizeof(customSymbols) / 2) {
 
-        // если это не нулевой спецсимвол, то считаем его длину, иначе берем записанное в начале скетча значение
+        // если это не нулевой спецсимвол, то считаем его длину через указатели, иначе берем размер массива custom0
         byte frame_count = newCustom > 0 ? customSymbols[newCustom - 1] - customSymbols[newCustom] : sizeof(custom0);
 
         //отдаем функции данные: с какой ячейки памяти начинать и сколько кадров считать
@@ -223,7 +215,7 @@ void loop() {
 void fillCustom(uint8_t *thisCustom, byte frames_amount) {
   frames = frames_amount;
   frameString = "";
-  for (int i = 0; i < frames_amount; i++) {
+  for (byte i = 0; i < frames_amount; i++) {
     char newByte = *thisCustom++;
     frameString += newByte;                      // забиваем строку принятыми данными
   }
