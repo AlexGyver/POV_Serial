@@ -36,17 +36,21 @@
 <a id="chapter-3"></a>
 ## Материалы и компоненты
 ### Ссылки оставлены на магазины, с которых я закупаюсь уже не один год
-* Arduino NANO с ногами http://ali.pub/26yo7x http://ali.pub/26yo7j
-* Arduino NANO без ног http://ali.pub/26yo93 http://ali.pub/26yoa9
-* Макетная плата http://ali.pub/26yoc0 http://ali.pub/26yocl
-* Провода для макетки http://ali.pub/26yocs http://ali.pub/26yodk
-* Светодиоды ассорти 5 мм http://ali.pub/26yogo http://ali.pub/26yoi8
-* Bluetooth модуль http://ali.pub/26yolx http://ali.pub/26yonh
-* Кнопочки http://ali.pub/26you3
-* Батарейный отсек http://ali.pub/26yp6c
-* Повышайка до 5В http://ali.pub/26yp8o
-* Резисторы http://ali.pub/26ypam
-* P.S. Кнопку, резисторы и светодиоды можно купить в любом магазине радиотоваров/радиорынке. Но взять у китайцев 100 штук обычно бывает дешевле, даже если лишние выбросить...
+* Arduino NANO 328p – искать
+* https://ali.ski/tI7blh
+* https://ali.ski/O4yTxb
+* https://ali.ski/6_rFIS
+* https://ali.ski/gb92E-
+* Макетная плата и провода https://ali.ski/w8AFTm
+* Светодиоды ассорти 5 мм https://ali.ski/w5H25a
+* Bluetooth HC-06 – искать
+* https://ali.ski/yZRcry
+* https://ali.ski/fkffF
+* Кнопочки https://ali.ski/E7WDDI
+* Батарейный отсек https://ali.ski/6tvjW
+* Повышайка до 5В https://ali.ski/KNHoOg
+* Резисторы https://ali.ski/TAN2C
+* P.S. Кнопку, резисторы и светодиоды можно купить в любом магазине радиотоваров/радиорынке. Но взять у китайцев 100 штук обычно бывает дешевле, даже если лишние выбросить…
 
 ### Приложения для Андроид
 * Serial Monitor https://goo.gl/H1Dzus
