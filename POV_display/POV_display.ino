@@ -5,10 +5,9 @@
 */
 
 // ------------------ НАСТРОЙКИ ------------------
-#define TRIGGER 12        // пин кнопки запуска анимации
-#define SPACE 2           // интервал между буквами
-#define CUSTOM_AMOUNT 8   // число спецсимволов
-#define BLUETOOTH_MODE 0  // если схема с bluetooth модулем
+#define TRIGGER 12          // пин кнопки запуска анимации
+#define SPACE 2             // интервал между буквами
+#define BLUETOOTH_MODE 0    // если схема с bluetooth модулем
 // ------------------ НАСТРОЙКИ ------------------
 
 // ------------------ ДЛЯ РАЗРАБОТЧИКОВ ------------------
@@ -22,7 +21,7 @@ SoftwareSerial btSerial(10, 11); // RX, TX
 #endif
 
 byte availableBytes, frames;
-boolean recievedFlag;
+boolean receivedFlag;
 String frameString = "";
 String strData = "";
 String speedSet = ".speed";
@@ -36,7 +35,7 @@ boolean anim_flag, trigFlag, offlineMode;
 
 void setup() {
   // ------ ПЕРВЫЙ ЗАПУСК -----
-  if (EEPROM.read(100) != 1) {   // в ячейке 100 должен быть замисан флажок 1, если его нет - делаем
+  if (EEPROM.read(100) != 1) {   // в ячейке 100 должен быть записан флажок 1, если его нет - делаем
     EEPROM.writeByte(100, 1);
     EEPROM.updateByte(101, 40);
     EEPROM.updateByte(102, 0);
@@ -120,24 +119,28 @@ void loop() {
   //------------------------------------------- SERIAL LOOP ------------------------------------------
   for (;;) {         // главный подцикл, ожидает данные в Serial и отрабатывает кнопку
     triggerTick();
-    availableBytes = Serial.available();         // считаем, сколько байт в буфере
-    if (availableBytes > 0 && !anim_flag) {      // если есть что то на вход и НЕ показывается анимация
-      delay(200);                                // ждём, пока придут остальные символы
-      availableBytes = Serial.available();       // обновляем число байт в буфере
-      strData = "";                              // очистить строку
-      for (int i = 0; i < availableBytes; i++) {
-        char newByte = Serial.read();
-        strData += newByte;                      // забиваем строку принятыми данными
+    availableBytes = Serial.available();           // считаем, сколько байт в буфере
+    if (availableBytes > 0 && !anim_flag) {        // если есть что то на вход и НЕ показывается анимация
+      delay(200);                                  // ждём, пока придут остальные символы
+      while (Serial.peek() == 0)                   // выкидываем байты 0х00
+        Serial.read();
+      availableBytes = Serial.available();         // обновляем число байт в буфере
+      if (availableBytes > 0) {                    // если в строке что-то осталось
+        strData = "";                              // очистить строку
+        for (int i = 0; i < availableBytes; i++) {
+          char newByte = Serial.read();
+          strData += newByte;                      // забиваем строку принятыми данными
+        }
+        receivedFlag = true;                       // поднять флаг что получили данные
+        break;                                     // выходим из цикла
       }
-      recievedFlag = true;                       // поднять флаг что получили данные
-      break;                                     // выходим из цикла
     }
   }
   //------------------------------------------- SERIAL LOOP ------------------------------------------
 
 
   //----------------------------------------- ОБРАБОТКА ДАННЫХ ----------------------------------------
-  if (recievedFlag) {
+  if (receivedFlag) {
     // ----- НАСТРОЙКА СКОРОСТИ АНИМАЦИИ -----
     if (strData.startsWith(speedSet)) {         // если строка начинается с
       strData.remove(0, 6);                     // обрезать строку, оставить только значение
@@ -154,13 +157,11 @@ void loop() {
     } else if (strData.startsWith(loopSet)) {
       strData.remove(0, 5);
       byte newLoop = strData.toInt();
-      if (newLoop == 1) {
-        loopMode = true;
-        Serial.println(F("Loop mode on"));
+      if (newLoop <= 1) {
+        loopMode = newLoop == 1;
         updateEEPROM();
-      } else if (newLoop == 0) {
-        loopMode = false;
-        Serial.println(F("Loop mode off"));
+        Serial.print(F("Loop mode "));
+        Serial.println(loopMode ? F("on") : F("off"));
       }
       else Serial.println(F("Wrong loop!"));
 
@@ -168,13 +169,11 @@ void loop() {
     } else if (strData.startsWith(reverseSet)) {
       strData.remove(0, 8);
       byte newReverse = strData.toInt();
-      if (newReverse == 1) {
-        reverseMode = true;
+      if (newReverse <= 1) {
+        reverseMode = newReverse == 1;
         updateEEPROM();
-        Serial.println(F("Reverse on"));
-      } else if (newReverse == 0) {
-        reverseMode = false;
-        Serial.println(F("Reverse off"));
+        Serial.print(F("Reverse "));
+        Serial.println(reverseMode ? F("on") : F("off"));
       }
       else Serial.println(F("Wrong reverse!"));
 
@@ -182,15 +181,20 @@ void loop() {
     } else if (strData.startsWith(customSet)) {
       strData.remove(0, 7);
       byte newCustom = strData.toInt();
-      if (newCustom >= 0 && newCustom < CUSTOM_AMOUNT) {
-        loadCustom(newCustom);
+      if (newCustom < sizeof(customSymbols) / 2) {
+
+        // если это не нулевой спецсимвол, то считаем его длину через указатели, иначе берем размер массива custom0
+        byte frame_count = newCustom > 0 ? customSymbols[newCustom - 1] - customSymbols[newCustom] : sizeof(custom0);
+
+        //отдаем функции данные: с какой ячейки памяти начинать и сколько кадров считать
+        fillCustom(customSymbols[newCustom], frame_count);
         Serial.print(F("Custom #"));
         Serial.print(newCustom);
         Serial.println(F(" is loaded"));
+        customMode = true;
+        updateEEPROM();
       }
       else Serial.println(F("Wrong custom number!"));
-      customMode = true;
-      updateEEPROM();
 
     } else {
       frameString = strData;
@@ -200,33 +204,19 @@ void loop() {
       customMode = false;
       updateEEPROM();
     }
-    recievedFlag = false;
+    receivedFlag = false;
     availableBytes = 0;
   }
   //----------------------------------------- ОБРАБОТКА ДАННЫХ ----------------------------------------
 
 }
 
-// функция загрузки своего символа в строку (можно было сделать красивее, но мне было лень)
-void loadCustom(byte newCustom) {
-  switch (newCustom) {
-    case 0: fillCustom(custom0, sizeof(custom0)); break;
-    case 1: fillCustom(custom1, sizeof(custom1)); break;
-    case 2: fillCustom(custom2, sizeof(custom2)); break;
-    case 3: fillCustom(custom3, sizeof(custom3)); break;
-    case 4: fillCustom(custom4, sizeof(custom4)); break;
-    case 5: fillCustom(custom5, sizeof(custom5)); break;
-    case 6: fillCustom(custom6, sizeof(custom6)); break;
-    case 7: fillCustom(custom7, sizeof(custom7)); break;
-  }
-}
-
 // забивка строки байтами символа
-void fillCustom(uint8_t thisCustom[], byte frames_amount) {
+void fillCustom(uint8_t *thisCustom, byte frames_amount) {
   frames = frames_amount;
   frameString = "";
-  for (int i = 0; i < frames; i++) {
-    char newByte = thisCustom[i];
+  for (byte i = 0; i < frames_amount; i++) {
+    char newByte = *thisCustom++;
     frameString += newByte;                      // забиваем строку принятыми данными
   }
 }
